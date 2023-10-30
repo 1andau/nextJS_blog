@@ -23,3 +23,8 @@ export async function GetOnePOst(id: number): Promise<Post[]> {
     const response = await fetch(`${API_URL}${id}`)
     return await  response.json()
     }
+    
+
+
+
+
