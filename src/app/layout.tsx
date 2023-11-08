@@ -1,27 +1,27 @@
-"use client"
+'use client';
 
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { draftMode } from "next/headers";
+import './globals.css';
 import Container from './components/container';
 import Footer from './components/Footer';
-
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+import { ThemeContextProvider } from './context/ThemeContext';
+import ThemeProvider from './providers/ThemeProvider'
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-      <div className="min-h-screen">
+        <div className="min-h-screen">
           <main>
-            <Container>{children}</Container>
+            <Container>
+              <ThemeContextProvider>
+                {/* <ThemeProvider> */}
+                {children}
+                {/* </ThemeProvider> */}
+                </ThemeContextProvider>
+            </Container>
           </main>
         </div>
         <Footer />
       </body>
     </html>
-  )
+  );
 }
